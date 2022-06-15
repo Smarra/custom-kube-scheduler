@@ -11,7 +11,7 @@ scrape_configs:
     metrics_path: '/metrics'
     scrape_interval: 5s
     static_configs:
-      - targets: ['164.92.229.83:9100']
+      - targets: ['164.92.229.83:9100','164.92.242.115:9100','165.22.87.15:9100']
 
   - job_name: 'prometheus-push-gateway'
     metrics_path: '/metrics'
