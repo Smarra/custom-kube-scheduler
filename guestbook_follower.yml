@@ -19,6 +19,7 @@ spec:
         role: follower
         tier: backend
     spec:
+      schedulerName: my-scheduler
       containers:
       - name: follower
         image: gcr.io/google_samples/gb-redis-follower:v2

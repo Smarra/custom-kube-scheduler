@@ -44,22 +44,16 @@ data:
         plugins:
           score:
             disabled:
-             - name: "ImageLocality,TaintToleration,PodTopologySpread,VolumeBinding"
+             - name: "ImageLocality,TaintToleration,PodTopologySpread"
           preScore:
             disabled:
              - name: "TaintToleration,PodTopologySpread"
           filter:
             disabled:
-             - name: "TaintToleration,NodeAffinity,PodTopologySpread,VolumeBinding,VolumeRestrictions,VolumeZone"
+             - name: "TaintToleration,NodeAffinity,PodTopologySpread"
           preFilter:
             disabled:
-             - name: "ImageLocality,NodeAffinity,PodTopologySpread,VolumeBinding"
-          reserve:
-            disabled:
-             - name: "VolumeBinding"
-          preBind:
-            disabled:
-             - name: "VolumeBinding"
+             - name: "ImageLocality,NodeAffinity,PodTopologySpread"
     leaderElection:
       leaderElect: false
 ---
