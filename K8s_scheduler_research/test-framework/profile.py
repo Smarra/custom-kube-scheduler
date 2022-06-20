@@ -5,7 +5,7 @@ import sys
 
 
 def run(replicas, role):
-    rs.run("kubectl apply -f deployment/follower.yml")
+    rs.run("kubectl apply -f deployment/follower-my-scheduler.yml")
     rs.run("kubectl scale deployment/redis-follower --replicas=" + str(replicas))
     m_time = 0
     break_while = 1
