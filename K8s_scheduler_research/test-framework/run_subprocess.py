@@ -1,6 +1,7 @@
 import subprocess
 
-def scrape_k8s(cmd):
+
+def run(cmd):
     process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
     process.wait()
     json_response, err = process.communicate()

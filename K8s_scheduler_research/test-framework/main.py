@@ -1,9 +1,13 @@
 import sys
 import math
 import itertools
+import run_subprocess as rs
 from numpy import logspace
 from profile import run
-from plot_results import plot_results
+from plot_results import MyPlot
+
+
+myPlot = MyPlot()
 
 # Role
 role = sys.argv[1]
@@ -18,6 +22,7 @@ upperbound_no_containers = int(sys.argv[3])
 # Limit the number of nodes to 2^7=64 nodes max
 for no_nodes in logspace(0, 7, num=7, base=2, endpoint=False, dtype='int'):
     if no_nodes <= upperbound_no_nodes:
+        rs.run("az aks scale --resource-group infra-emea1 --name playing-with-k8s --node-count {} --nodepool-name agentpool".format(no_nodes))
         print("Starting new testing sequence with {} nodes ...".format(no_nodes))
 
         containers = []
@@ -31,5 +36,9 @@ for no_nodes in logspace(0, 7, num=7, base=2, endpoint=False, dtype='int'):
                 dts.append(dt)
                 tts.append(tt)
 
-        plot_results(containers, 'No. of containers', dts, 'Deployment time (s)')
-        plot_results(containers, 'No. of containers', tts, 'Termination time (s)')
+        myPlot.add_to_plot_1(containers, dts, "{} nodes".format(no_nodes))
+        myPlot.add_to_plot_2(containers, tts, "{} nodes".format(no_nodes))
+
+
+myPlot.plot_results("No. containers", "Deployment time (s)", "Termination time (s)")
+rs.run("az aks scale --resource-group infra-emea1 --name playing-with-k8s --node-count 1 --nodepool-name agentpool")
