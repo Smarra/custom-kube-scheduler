@@ -51,12 +51,12 @@ COPY examples /opt/spark/examples
 COPY kubernetes/tests /opt/spark/tests
 COPY data /opt/spark/data
 
-COPY millionsongsubset.tar.gz /opt/spark/millionsongsubset.tar.gz
-COPY analyze_songs.py /opt/spark/analyze_songs.py
-COPY convert_hdf5_to_csv.py /opt/spark/convert_hdf5_to_csv.py
-COPY hdf5_getters.py /opt/spark/hdf5_getters.py
-COPY songs-1mb.csv /opt/spark/songs-1mb.csv
-COPY songs-1gb.csv /opt/spark/songs-1gb.csv
+COPY K8s_scheduler_research/millionsongsubset.tar.gz /opt/spark/millionsongsubset.tar.gz
+COPY K8s_scheduler_research/analyze_songs.py /opt/spark/analyze_songs.py
+COPY K8s_scheduler_research/convert_hdf5_to_csv.py /opt/spark/convert_hdf5_to_csv.py
+COPY K8s_scheduler_research/hdf5_getters.py /opt/spark/hdf5_getters.py
+COPY K8s_scheduler_research/songs-1mb.csv /opt/spark/songs-1mb.csv
+COPY K8s_scheduler_research/songs-1gb.csv /opt/spark/songs-1gb.csv
 
 ENV SPARK_HOME /opt/spark
 

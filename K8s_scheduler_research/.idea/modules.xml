@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spark-3.2.1-bin-hadoop2.7.iml" filepath="$PROJECT_DIR$/spark-3.2.1-bin-hadoop2.7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/K8s_scheduler_research.iml" filepath="$PROJECT_DIR$/.idea/K8s_scheduler_research.iml" />
     </modules>
   </component>
 </project>
