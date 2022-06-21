@@ -41,19 +41,6 @@ data:
     kind: KubeSchedulerConfiguration
     profiles:
       - schedulerName: my-scheduler
-        plugins:
-          score:
-            disabled:
-             - name: "ImageLocality,TaintToleration,PodTopologySpread"
-          preScore:
-            disabled:
-             - name: "TaintToleration,PodTopologySpread"
-          filter:
-            disabled:
-             - name: "TaintToleration,NodeAffinity,PodTopologySpread"
-          preFilter:
-            disabled:
-             - name: "ImageLocality,NodeAffinity,PodTopologySpread"
     leaderElection:
       leaderElect: false
 ---

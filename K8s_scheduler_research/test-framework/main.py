@@ -28,7 +28,7 @@ for no_nodes in logspace(0, 7, num=7, base=2, endpoint=False, dtype='int'):
         containers = []
         dts = []
         tts = []
-        for no_contaiers in itertools.chain(range(1, 5), range(8, upperbound_no_containers, 4)):
+        for no_contaiers in itertools.chain(range(1, 5), range(8, upperbound_no_containers + 1, 4)):
             if no_contaiers <= upperbound_no_containers:
                 print("    {} containers ...".format(no_contaiers))
                 dt, tt = run(no_contaiers, role)

@@ -89,7 +89,7 @@ spec:
       - command:
         - /usr/local/bin/kube-scheduler
         - --config=/etc/kubernetes/my-scheduler/my-scheduler-config.yaml
-        image: k8s.gcr.io/kube-scheduler:v1.24.1
+        image: k8s.gcr.io/kube-scheduler:v1.23.0
         livenessProbe:
           httpGet:
             path: /healthz
