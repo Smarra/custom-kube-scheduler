@@ -1,0 +1,863 @@
+➜  spark-3.1.1-bin-hadoop3.2 kubectl logs music-stats-5809e9818a85d925-driver
+++ id -u
++ myuid=185
+++ id -g
++ mygid=0
++ set +e
+++ getent passwd 185
++ uidentry=
++ set -e
++ '[' -z '' ']'
++ '[' -w /etc/passwd ']'
++ echo '185:x:185:0:anonymous uid:/opt/spark:/bin/false'
++ SPARK_CLASSPATH=':/opt/spark/jars/*'
++ env
++ grep SPARK_JAVA_OPT_
++ sort -t_ -k4 -n
++ sed 's/[^=]*=\(.*\)/\1/g'
++ readarray -t SPARK_EXECUTOR_JAVA_OPTS
++ '[' -n '' ']'
++ '[' -z ']'
++ '[' -z ']'
++ '[' -n '' ']'
++ '[' -z ']'
++ '[' -z x ']'
++ SPARK_CLASSPATH='/opt/spark/conf::/opt/spark/jars/*'
++ case "$1" in
++ shift 1
++ CMD=("$SPARK_HOME/bin/spark-submit" --conf "spark.driver.bindAddress=$SPARK_DRIVER_BIND_ADDRESS" --deploy-mode client "$@")
++ exec /usr/bin/tini -s -- /opt/spark/bin/spark-submit --conf spark.driver.bindAddress=10.244.23.17 --deploy-mode client --properties-file /opt/spark/conf/spark.properties --class org.apache.spark.deploy.PythonRunner wasbs://container@test0playwithkubernetes.blob.core.windows.net//spark-upload-f13c156f-e077-4455-b3dd-d6e588c81fd2/analyze_songs.py songs-1gb.csv
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/opt/spark/jars/spark-unsafe_2.12-3.1.1.jar) to constructor java.nio.DirectByteBuffer(long,int)
+WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+22/06/22 08:27:23 WARN Utils: Kubernetes master URL uses HTTP instead of HTTPS.
+:: loading settings :: url = jar:file:/opt/spark/jars/ivy-2.4.0.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /tmp
+The jars for the packages stored in: /tmp/jars
+org.apache.hadoop#hadoop-azure added as a dependency
+org.apache.hadoop#hadoop-azure-datalake added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-0cb6cb4f-cef4-4251-9cd2-495c92be88fa;1.0
+	confs: [default]
+	found org.apache.hadoop#hadoop-azure;3.2.1 in central
+	found org.apache.httpcomponents#httpclient;4.5.6 in central
+	found org.apache.httpcomponents#httpcore;4.4.10 in central
+	found commons-logging#commons-logging;1.1.3 in central
+	found commons-codec#commons-codec;1.11 in central
+	found com.microsoft.azure#azure-storage;7.0.0 in central
+	found com.fasterxml.jackson.core#jackson-core;2.9.8 in central
+	found org.slf4j#slf4j-api;1.7.25 in central
+	found com.microsoft.azure#azure-keyvault-core;1.0.0 in central
+	found com.google.guava#guava;27.0-jre in central
+	found com.google.guava#failureaccess;1.0 in central
+	found com.google.guava#listenablefuture;9999.0-empty-to-avoid-conflict-with-guava in central
+	found com.google.code.findbugs#jsr305;3.0.0 in central
+	found org.checkerframework#checker-qual;2.5.2 in central
+	found com.google.errorprone#error_prone_annotations;2.2.0 in central
+	found com.google.j2objc#j2objc-annotations;1.1 in central
+	found org.codehaus.mojo#animal-sniffer-annotations;1.17 in central
+	found org.eclipse.jetty#jetty-util-ajax;9.3.24.v20180605 in central
+	found org.eclipse.jetty#jetty-util;9.3.24.v20180605 in central
+	found org.codehaus.jackson#jackson-mapper-asl;1.9.13 in central
+	found org.codehaus.jackson#jackson-core-asl;1.9.13 in central
+	found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+	found org.apache.hadoop#hadoop-azure-datalake;3.2.1 in central
+	found com.microsoft.azure#azure-data-lake-store-sdk;2.2.9 in central
+downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure/3.2.1/hadoop-azure-3.2.1.jar ...
+	[SUCCESSFUL ] org.apache.hadoop#hadoop-azure;3.2.1!hadoop-azure.jar (21ms)
+downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure-datalake/3.2.1/hadoop-azure-datalake-3.2.1.jar ...
+	[SUCCESSFUL ] org.apache.hadoop#hadoop-azure-datalake;3.2.1!hadoop-azure-datalake.jar (5ms)
+downloading https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.6/httpclient-4.5.6.jar ...
+	[SUCCESSFUL ] org.apache.httpcomponents#httpclient;4.5.6!httpclient.jar (22ms)
+downloading https://repo1.maven.org/maven2/com/microsoft/azure/azure-storage/7.0.0/azure-storage-7.0.0.jar ...
+	[SUCCESSFUL ] com.microsoft.azure#azure-storage;7.0.0!azure-storage.jar (22ms)
+downloading https://repo1.maven.org/maven2/com/google/guava/guava/27.0-jre/guava-27.0-jre.jar ...
+	[SUCCESSFUL ] com.google.guava#guava;27.0-jre!guava.jar(bundle) (68ms)
+downloading https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util-ajax/9.3.24.v20180605/jetty-util-ajax-9.3.24.v20180605.jar ...
+	[SUCCESSFUL ] org.eclipse.jetty#jetty-util-ajax;9.3.24.v20180605!jetty-util-ajax.jar (4ms)
+downloading https://repo1.maven.org/maven2/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar ...
+	[SUCCESSFUL ] org.codehaus.jackson#jackson-mapper-asl;1.9.13!jackson-mapper-asl.jar (20ms)
+downloading https://repo1.maven.org/maven2/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar ...
+	[SUCCESSFUL ] org.codehaus.jackson#jackson-core-asl;1.9.13!jackson-core-asl.jar (7ms)
+downloading https://repo1.maven.org/maven2/org/wildfly/openssl/wildfly-openssl/1.0.7.Final/wildfly-openssl-1.0.7.Final.jar ...
+	[SUCCESSFUL ] org.wildfly.openssl#wildfly-openssl;1.0.7.Final!wildfly-openssl.jar (12ms)
+downloading https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.10/httpcore-4.4.10.jar ...
+	[SUCCESSFUL ] org.apache.httpcomponents#httpcore;4.4.10!httpcore.jar (11ms)
+downloading https://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar ...
+	[SUCCESSFUL ] commons-logging#commons-logging;1.1.3!commons-logging.jar (6ms)
+downloading https://repo1.maven.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.jar ...
+	[SUCCESSFUL ] commons-codec#commons-codec;1.11!commons-codec.jar (12ms)
+downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.9.8/jackson-core-2.9.8.jar ...
+	[SUCCESSFUL ] com.fasterxml.jackson.core#jackson-core;2.9.8!jackson-core.jar(bundle) (10ms)
+downloading https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar ...
+	[SUCCESSFUL ] org.slf4j#slf4j-api;1.7.25!slf4j-api.jar (3ms)
+downloading https://repo1.maven.org/maven2/com/microsoft/azure/azure-keyvault-core/1.0.0/azure-keyvault-core-1.0.0.jar ...
+	[SUCCESSFUL ] com.microsoft.azure#azure-keyvault-core;1.0.0!azure-keyvault-core.jar (3ms)
+downloading https://repo1.maven.org/maven2/com/google/guava/failureaccess/1.0/failureaccess-1.0.jar ...
+	[SUCCESSFUL ] com.google.guava#failureaccess;1.0!failureaccess.jar (2ms)
+downloading https://repo1.maven.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar ...
+	[SUCCESSFUL ] com.google.guava#listenablefuture;9999.0-empty-to-avoid-conflict-with-guava!listenablefuture.jar (2ms)
+downloading https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar ...
+	[SUCCESSFUL ] com.google.code.findbugs#jsr305;3.0.0!jsr305.jar (3ms)
+downloading https://repo1.maven.org/maven2/org/checkerframework/checker-qual/2.5.2/checker-qual-2.5.2.jar ...
+	[SUCCESSFUL ] org.checkerframework#checker-qual;2.5.2!checker-qual.jar (7ms)
+downloading https://repo1.maven.org/maven2/com/google/errorprone/error_prone_annotations/2.2.0/error_prone_annotations-2.2.0.jar ...
+	[SUCCESSFUL ] com.google.errorprone#error_prone_annotations;2.2.0!error_prone_annotations.jar (3ms)
+downloading https://repo1.maven.org/maven2/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar ...
+	[SUCCESSFUL ] com.google.j2objc#j2objc-annotations;1.1!j2objc-annotations.jar (3ms)
+downloading https://repo1.maven.org/maven2/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar ...
+	[SUCCESSFUL ] org.codehaus.mojo#animal-sniffer-annotations;1.17!animal-sniffer-annotations.jar (3ms)
+downloading https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/9.3.24.v20180605/jetty-util-9.3.24.v20180605.jar ...
+	[SUCCESSFUL ] org.eclipse.jetty#jetty-util;9.3.24.v20180605!jetty-util.jar (12ms)
+downloading https://repo1.maven.org/maven2/com/microsoft/azure/azure-data-lake-store-sdk/2.2.9/azure-data-lake-store-sdk-2.2.9.jar ...
+	[SUCCESSFUL ] com.microsoft.azure#azure-data-lake-store-sdk;2.2.9!azure-data-lake-store-sdk.jar (5ms)
+:: resolution report :: resolve 2174ms :: artifacts dl 279ms
+	:: modules in use:
+	com.fasterxml.jackson.core#jackson-core;2.9.8 from central in [default]
+	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+	com.google.errorprone#error_prone_annotations;2.2.0 from central in [default]
+	com.google.guava#failureaccess;1.0 from central in [default]
+	com.google.guava#guava;27.0-jre from central in [default]
+	com.google.guava#listenablefuture;9999.0-empty-to-avoid-conflict-with-guava from central in [default]
+	com.google.j2objc#j2objc-annotations;1.1 from central in [default]
+	com.microsoft.azure#azure-data-lake-store-sdk;2.2.9 from central in [default]
+	com.microsoft.azure#azure-keyvault-core;1.0.0 from central in [default]
+	com.microsoft.azure#azure-storage;7.0.0 from central in [default]
+	commons-codec#commons-codec;1.11 from central in [default]
+	commons-logging#commons-logging;1.1.3 from central in [default]
+	org.apache.hadoop#hadoop-azure;3.2.1 from central in [default]
+	org.apache.hadoop#hadoop-azure-datalake;3.2.1 from central in [default]
+	org.apache.httpcomponents#httpclient;4.5.6 from central in [default]
+	org.apache.httpcomponents#httpcore;4.4.10 from central in [default]
+	org.checkerframework#checker-qual;2.5.2 from central in [default]
+	org.codehaus.jackson#jackson-core-asl;1.9.13 from central in [default]
+	org.codehaus.jackson#jackson-mapper-asl;1.9.13 from central in [default]
+	org.codehaus.mojo#animal-sniffer-annotations;1.17 from central in [default]
+	org.eclipse.jetty#jetty-util;9.3.24.v20180605 from central in [default]
+	org.eclipse.jetty#jetty-util-ajax;9.3.24.v20180605 from central in [default]
+	org.slf4j#slf4j-api;1.7.25 from central in [default]
+	org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   24  |   24  |   24  |   0   ||   24  |   24  |
+	---------------------------------------------------------------------
+
+:: problems summary ::
+:::: ERRORS
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/apache/hadoop/hadoop-main/3.2.1/hadoop-main-3.2.1.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/apache/hadoop/hadoop-project/3.2.1/hadoop-project-3.2.1.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/apache/apache/18/apache-18.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/apache/httpcomponents/httpcomponents-parent/10/httpcomponents-parent-10.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/apache/httpcomponents/httpcomponents-client/4.5.6/httpcomponents-client-4.5.6.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/apache/httpcomponents/httpcomponents-core/4.4.10/httpcomponents-core-4.4.10.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/apache/apache/13/apache-13.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/apache/commons/commons-parent/28/commons-parent-28.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/apache/commons/commons-parent/42/commons-parent-42.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/com/fasterxml/oss-parent/34/oss-parent-34.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/com/fasterxml/jackson/jackson-parent/2.9.1.2/jackson-parent-2.9.1.2.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/com/fasterxml/jackson/jackson-bom/2.9.8/jackson-bom-2.9.8.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/com/fasterxml/jackson/jackson-base/2.9.8/jackson-base-2.9.8.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/slf4j/slf4j-parent/1.7.25/slf4j-parent-1.7.25.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/com/microsoft/azure/azure-keyvault-parent/1.0.0/azure-keyvault-parent-1.0.0.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/sonatype/oss/oss-parent/9/oss-parent-9.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/com/google/guava/guava-parent/27.0-jre/guava-parent-27.0-jre.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/com/google/guava/guava-parent/26.0-android/guava-parent-26.0-android.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava-sources.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava-src.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava-javadoc.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/sonatype/oss/oss-parent/7/oss-parent-7.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/com/google/errorprone/error_prone_parent/2.2.0/error_prone_parent-2.2.0.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/codehaus/mojo/mojo-parent/40/mojo-parent-40.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/codehaus/mojo/animal-sniffer-parent/1.17/animal-sniffer-parent-1.17.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/eclipse/jetty/jetty-parent/25/jetty-parent-25.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/eclipse/jetty/jetty-project/9.3.24.v20180605/jetty-project-9.3.24.v20180605.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/jboss/jboss-parent/35/jboss-parent-35.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/wildfly/openssl/wildfly-openssl-parent/1.0.7.Final/wildfly-openssl-parent-1.0.7.Final.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+	Server access error at url https://dl.bintray.com/spark-packages/maven/org/wildfly/openssl/wildfly-openssl/1.0.7.Final/wildfly-openssl-1.0.7.Final-javadoc.jar (javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake)
+
+
+:: USE VERBOSE OR DEBUG MESSAGE LEVEL FOR MORE DETAILS
+:: retrieving :: org.apache.spark#spark-submit-parent-0cb6cb4f-cef4-4251-9cd2-495c92be88fa
+	confs: [default]
+	24 artifacts copied, 0 already retrieved (8078kB/21ms)
+22/06/22 08:27:26 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+22/06/22 08:27:26 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-azure-file-system.properties,hadoop-metrics2.properties
+Matplotlib created a temporary config/cache directory at /tmp/matplotlib-mgr7bsu5 because the default path (/.config/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+22/06/22 08:27:28 INFO SparkContext: Running Spark version 3.1.1
+22/06/22 08:27:28 INFO ResourceUtils: ==============================================================
+22/06/22 08:27:28 INFO ResourceUtils: No custom resources configured for spark.driver.
+22/06/22 08:27:28 INFO ResourceUtils: ==============================================================
+22/06/22 08:27:28 INFO SparkContext: Submitted application: Songs-Analysis
+22/06/22 08:27:28 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 512, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+22/06/22 08:27:28 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+22/06/22 08:27:28 INFO ResourceProfileManager: Added ResourceProfile id: 0
+22/06/22 08:27:28 INFO SecurityManager: Changing view acls to: 185,smarando
+22/06/22 08:27:28 INFO SecurityManager: Changing modify acls to: 185,smarando
+22/06/22 08:27:28 INFO SecurityManager: Changing view acls groups to:
+22/06/22 08:27:28 INFO SecurityManager: Changing modify acls groups to:
+22/06/22 08:27:28 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(185, smarando); groups with view permissions: Set(); users  with modify permissions: Set(185, smarando); groups with modify permissions: Set()
+22/06/22 08:27:28 INFO Utils: Successfully started service 'sparkDriver' on port 7078.
+22/06/22 08:27:28 INFO SparkEnv: Registering MapOutputTracker
+22/06/22 08:27:28 INFO SparkEnv: Registering BlockManagerMaster
+22/06/22 08:27:28 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+22/06/22 08:27:28 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+22/06/22 08:27:28 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+22/06/22 08:27:28 INFO DiskBlockManager: Created local directory at /var/data/spark-56f09dce-445d-4e7f-9460-9ba1e40fabb5/blockmgr-ddb1be6a-e53a-416f-80db-2568f0a652fe
+22/06/22 08:27:28 INFO MemoryStore: MemoryStore started with capacity 117.0 MiB
+22/06/22 08:27:28 INFO SparkEnv: Registering OutputCommitCoordinator
+22/06/22 08:27:29 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+22/06/22 08:27:29 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://music-stats-5809e9818a85d925-driver-svc.default.svc:4040
+22/06/22 08:27:29 INFO SparkKubernetesClientFactory: Auto-configuring K8S client using current context from users K8S config file
+22/06/22 08:27:29 INFO ExecutorPodsAllocator: Going to request 1 executors from Kubernetes for ResourceProfile Id: 0, target: 1 running: 0.
+22/06/22 08:27:29 INFO BasicExecutorFeatureStep: Decommissioning not enabled, skipping shutdown script
+22/06/22 08:27:30 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 7079.
+22/06/22 08:27:30 INFO NettyBlockTransferService: Server created on music-stats-5809e9818a85d925-driver-svc.default.svc:7079
+22/06/22 08:27:30 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+22/06/22 08:27:30 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, music-stats-5809e9818a85d925-driver-svc.default.svc, 7079, None)
+22/06/22 08:27:30 INFO BlockManagerMasterEndpoint: Registering block manager music-stats-5809e9818a85d925-driver-svc.default.svc:7079 with 117.0 MiB RAM, BlockManagerId(driver, music-stats-5809e9818a85d925-driver-svc.default.svc, 7079, None)
+22/06/22 08:27:30 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, music-stats-5809e9818a85d925-driver-svc.default.svc, 7079, None)
+22/06/22 08:27:30 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, music-stats-5809e9818a85d925-driver-svc.default.svc, 7079, None)
+22/06/22 08:27:58 INFO KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.244.59.2:47942) with ID 1,  ResourceProfileId 0
+22/06/22 08:27:58 INFO KubernetesClusterSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.8
+22/06/22 08:27:58 INFO BlockManagerMasterEndpoint: Registering block manager 10.244.59.2:35365 with 117.0 MiB RAM, BlockManagerId(1, 10.244.59.2, 35365, None)
+22/06/22 08:27:58 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/opt/spark/work-dir/spark-warehouse').
+22/06/22 08:27:58 INFO SharedState: Warehouse path is 'file:/opt/spark/work-dir/spark-warehouse'.
+22/06/22 08:27:59 INFO InMemoryFileIndex: It took 31 ms to list leaf files for 1 paths.
+22/06/22 08:27:59 INFO InMemoryFileIndex: It took 1 ms to list leaf files for 1 paths.
+22/06/22 08:28:01 INFO FileSourceStrategy: Pushed Filters:
+22/06/22 08:28:01 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#0, None)) > 0)
+22/06/22 08:28:01 INFO FileSourceStrategy: Output Data Schema: struct<value: string>
+22/06/22 08:28:01 INFO CodeGenerator: Code generated in 140.904728 ms
+22/06/22 08:28:01 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 178.6 KiB, free 116.8 MiB)
+22/06/22 08:28:01 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 28.9 KiB, free 116.8 MiB)
+22/06/22 08:28:01 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on music-stats-5809e9818a85d925-driver-svc.default.svc:7079 (size: 28.9 KiB, free: 116.9 MiB)
+22/06/22 08:28:01 INFO SparkContext: Created broadcast 0 from csv at <unknown>:0
+22/06/22 08:28:01 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+22/06/22 08:28:02 INFO SparkContext: Starting job: csv at <unknown>:0
+22/06/22 08:28:02 INFO DAGScheduler: Got job 0 (csv at <unknown>:0) with 1 output partitions
+22/06/22 08:28:02 INFO DAGScheduler: Final stage: ResultStage 0 (csv at <unknown>:0)
+22/06/22 08:28:02 INFO DAGScheduler: Parents of final stage: List()
+22/06/22 08:28:02 INFO DAGScheduler: Missing parents: List()
+22/06/22 08:28:02 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[3] at csv at <unknown>:0), which has no missing parents
+22/06/22 08:28:02 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 10.8 KiB, free 116.7 MiB)
+22/06/22 08:28:02 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 5.4 KiB, free 116.7 MiB)
+22/06/22 08:28:02 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on music-stats-5809e9818a85d925-driver-svc.default.svc:7079 (size: 5.4 KiB, free: 116.9 MiB)
+22/06/22 08:28:02 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1383
+22/06/22 08:28:02 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[3] at csv at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+22/06/22 08:28:02 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+22/06/22 08:28:02 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (10.244.59.2, executor 1, partition 0, PROCESS_LOCAL, 4884 bytes) taskResourceAssignments Map()
+22/06/22 08:28:02 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 10.244.59.2:35365 (size: 5.4 KiB, free: 117.0 MiB)
+22/06/22 08:28:03 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 10.244.59.2:35365 (size: 28.9 KiB, free: 116.9 MiB)
+22/06/22 08:28:03 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1132 ms on 10.244.59.2 (executor 1) (1/1)
+22/06/22 08:28:03 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+22/06/22 08:28:03 INFO DAGScheduler: ResultStage 0 (csv at <unknown>:0) finished in 1.324 s
+22/06/22 08:28:03 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+22/06/22 08:28:03 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+22/06/22 08:28:03 INFO DAGScheduler: Job 0 finished: csv at <unknown>:0, took 1.358946 s
+22/06/22 08:28:03 INFO CodeGenerator: Code generated in 10.380508 ms
+22/06/22 08:28:03 INFO FileSourceStrategy: Pushed Filters:
+22/06/22 08:28:03 INFO FileSourceStrategy: Post-Scan Filters:
+22/06/22 08:28:03 INFO FileSourceStrategy: Output Data Schema: struct<value: string>
+22/06/22 08:28:03 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 178.6 KiB, free 116.6 MiB)
+22/06/22 08:28:03 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 28.9 KiB, free 116.5 MiB)
+22/06/22 08:28:03 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on music-stats-5809e9818a85d925-driver-svc.default.svc:7079 (size: 28.9 KiB, free: 116.9 MiB)
+22/06/22 08:28:03 INFO SparkContext: Created broadcast 2 from csv at <unknown>:0
+22/06/22 08:28:03 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+22/06/22 08:28:03 INFO SparkContext: Starting job: csv at <unknown>:0
+22/06/22 08:28:03 INFO DAGScheduler: Got job 1 (csv at <unknown>:0) with 1 output partitions
+22/06/22 08:28:03 INFO DAGScheduler: Final stage: ResultStage 1 (csv at <unknown>:0)
+22/06/22 08:28:03 INFO DAGScheduler: Parents of final stage: List()
+22/06/22 08:28:03 INFO DAGScheduler: Missing parents: List()
+22/06/22 08:28:03 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[9] at csv at <unknown>:0), which has no missing parents
+22/06/22 08:28:03 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 16.6 KiB, free 116.5 MiB)
+22/06/22 08:28:03 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 8.6 KiB, free 116.5 MiB)
+22/06/22 08:28:03 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on music-stats-5809e9818a85d925-driver-svc.default.svc:7079 (size: 8.6 KiB, free: 116.9 MiB)
+22/06/22 08:28:03 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1383
+22/06/22 08:28:03 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[9] at csv at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+22/06/22 08:28:03 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+22/06/22 08:28:03 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (10.244.59.2, executor 1, partition 0, PROCESS_LOCAL, 4884 bytes) taskResourceAssignments Map()
+22/06/22 08:28:03 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 10.244.59.2:35365 (size: 8.6 KiB, free: 116.9 MiB)
+22/06/22 08:28:04 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 10.244.59.2:35365 (size: 28.9 KiB, free: 116.9 MiB)
+22/06/22 08:28:04 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 1332 ms on 10.244.59.2 (executor 1) (1/1)
+22/06/22 08:28:04 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool
+22/06/22 08:28:04 INFO DAGScheduler: ResultStage 1 (csv at <unknown>:0) finished in 1.356 s
+22/06/22 08:28:04 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+22/06/22 08:28:04 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+22/06/22 08:28:04 INFO DAGScheduler: Job 1 finished: csv at <unknown>:0, took 1.362552 s
+22/06/22 08:28:05 INFO BlockManagerInfo: Removed broadcast_3_piece0 on music-stats-5809e9818a85d925-driver-svc.default.svc:7079 in memory (size: 8.6 KiB, free: 116.9 MiB)
+22/06/22 08:28:05 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 10.244.59.2:35365 in memory (size: 8.6 KiB, free: 116.9 MiB)
+22/06/22 08:28:05 INFO FileSourceStrategy: Pushed Filters: IsNotNull(year),Not(EqualTo(year,0))
+22/06/22 08:28:05 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(year#18),NOT (year#18 = 0)
+22/06/22 08:28:05 INFO FileSourceStrategy: Output Data Schema: struct<year: int>
+22/06/22 08:28:05 INFO CodeGenerator: Code generated in 10.261005 ms
+22/06/22 08:28:05 INFO CodeGenerator: Code generated in 23.196062 ms
+22/06/22 08:28:05 INFO CodeGenerator: Code generated in 34.523787 ms
+22/06/22 08:28:05 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 178.5 KiB, free 116.4 MiB)
+22/06/22 08:28:05 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 28.8 KiB, free 116.3 MiB)
+22/06/22 08:28:05 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on music-stats-5809e9818a85d925-driver-svc.default.svc:7079 (size: 28.8 KiB, free: 116.9 MiB)
+22/06/22 08:28:05 INFO SparkContext: Created broadcast 4 from showString at <unknown>:0
+22/06/22 08:28:05 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+22/06/22 08:28:05 INFO SparkContext: Starting job: showString at <unknown>:0
+22/06/22 08:28:05 INFO DAGScheduler: Registering RDD 13 (showString at <unknown>:0) as input to shuffle 0
+22/06/22 08:28:05 INFO DAGScheduler: Got job 2 (showString at <unknown>:0) with 200 output partitions
+22/06/22 08:28:05 INFO DAGScheduler: Final stage: ResultStage 3 (showString at <unknown>:0)
+22/06/22 08:28:05 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 2)
+22/06/22 08:28:05 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 2)
+22/06/22 08:28:05 INFO DAGScheduler: Submitting ShuffleMapStage 2 (MapPartitionsRDD[13] at showString at <unknown>:0), which has no missing parents
+22/06/22 08:28:05 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 28.6 KiB, free 116.3 MiB)
+22/06/22 08:28:05 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 13.5 KiB, free 116.3 MiB)
+22/06/22 08:28:05 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on music-stats-5809e9818a85d925-driver-svc.default.svc:7079 (size: 13.5 KiB, free: 116.9 MiB)
+22/06/22 08:28:05 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1383
+22/06/22 08:28:05 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 2 (MapPartitionsRDD[13] at showString at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+22/06/22 08:28:05 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks resource profile 0
+22/06/22 08:28:05 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2) (10.244.59.2, executor 1, partition 0, PROCESS_LOCAL, 4873 bytes) taskResourceAssignments Map()
+22/06/22 08:28:05 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on 10.244.59.2:35365 (size: 13.5 KiB, free: 116.9 MiB)
+22/06/22 08:28:05 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on 10.244.59.2:35365 (size: 28.8 KiB, free: 116.9 MiB)
+22/06/22 08:28:05 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 451 ms on 10.244.59.2 (executor 1) (1/1)
+22/06/22 08:28:05 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool
+22/06/22 08:28:05 INFO DAGScheduler: ShuffleMapStage 2 (showString at <unknown>:0) finished in 0.464 s
+22/06/22 08:28:05 INFO DAGScheduler: looking for newly runnable stages
+22/06/22 08:28:05 INFO DAGScheduler: running: Set()
+22/06/22 08:28:05 INFO DAGScheduler: waiting: Set(ResultStage 3)
+22/06/22 08:28:05 INFO DAGScheduler: failed: Set()
+22/06/22 08:28:05 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[17] at showString at <unknown>:0), which has no missing parents
+22/06/22 08:28:05 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 32.7 KiB, free 116.3 MiB)
+22/06/22 08:28:05 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 16.2 KiB, free 116.3 MiB)
+22/06/22 08:28:05 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on music-stats-5809e9818a85d925-driver-svc.default.svc:7079 (size: 16.2 KiB, free: 116.8 MiB)
+22/06/22 08:28:05 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1383
+22/06/22 08:28:05 INFO DAGScheduler: Submitting 200 missing tasks from ResultStage 3 (MapPartitionsRDD[17] at showString at <unknown>:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+22/06/22 08:28:05 INFO TaskSchedulerImpl: Adding task set 3.0 with 200 tasks resource profile 0
+22/06/22 08:28:05 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3) (10.244.59.2, executor 1, partition 0, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on 10.244.59.2:35365 (size: 16.2 KiB, free: 116.8 MiB)
+22/06/22 08:28:06 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.244.59.2:47942
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 1.0 in stage 3.0 (TID 4) (10.244.59.2, executor 1, partition 1, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 3.0 in stage 3.0 (TID 5) (10.244.59.2, executor 1, partition 3, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 335 ms on 10.244.59.2 (executor 1) (1/200)
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 1.0 in stage 3.0 (TID 4) in 33 ms on 10.244.59.2 (executor 1) (2/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 4.0 in stage 3.0 (TID 6) (10.244.59.2, executor 1, partition 4, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 3.0 in stage 3.0 (TID 5) in 26 ms on 10.244.59.2 (executor 1) (3/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 12.0 in stage 3.0 (TID 7) (10.244.59.2, executor 1, partition 12, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 4.0 in stage 3.0 (TID 6) in 21 ms on 10.244.59.2 (executor 1) (4/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 13.0 in stage 3.0 (TID 8) (10.244.59.2, executor 1, partition 13, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 12.0 in stage 3.0 (TID 7) in 21 ms on 10.244.59.2 (executor 1) (5/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 16.0 in stage 3.0 (TID 9) (10.244.59.2, executor 1, partition 16, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 13.0 in stage 3.0 (TID 8) in 35 ms on 10.244.59.2 (executor 1) (6/200)
+22/06/22 08:28:06 INFO BlockManagerInfo: Removed broadcast_5_piece0 on music-stats-5809e9818a85d925-driver-svc.default.svc:7079 in memory (size: 13.5 KiB, free: 116.9 MiB)
+22/06/22 08:28:06 INFO BlockManagerInfo: Removed broadcast_5_piece0 on 10.244.59.2:35365 in memory (size: 13.5 KiB, free: 116.9 MiB)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 20.0 in stage 3.0 (TID 10) (10.244.59.2, executor 1, partition 20, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 16.0 in stage 3.0 (TID 9) in 38 ms on 10.244.59.2 (executor 1) (7/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 22.0 in stage 3.0 (TID 11) (10.244.59.2, executor 1, partition 22, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 20.0 in stage 3.0 (TID 10) in 21 ms on 10.244.59.2 (executor 1) (8/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 25.0 in stage 3.0 (TID 12) (10.244.59.2, executor 1, partition 25, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 22.0 in stage 3.0 (TID 11) in 22 ms on 10.244.59.2 (executor 1) (9/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 27.0 in stage 3.0 (TID 13) (10.244.59.2, executor 1, partition 27, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 25.0 in stage 3.0 (TID 12) in 22 ms on 10.244.59.2 (executor 1) (10/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 30.0 in stage 3.0 (TID 14) (10.244.59.2, executor 1, partition 30, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 27.0 in stage 3.0 (TID 13) in 24 ms on 10.244.59.2 (executor 1) (11/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 52.0 in stage 3.0 (TID 15) (10.244.59.2, executor 1, partition 52, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 30.0 in stage 3.0 (TID 14) in 21 ms on 10.244.59.2 (executor 1) (12/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 53.0 in stage 3.0 (TID 16) (10.244.59.2, executor 1, partition 53, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 52.0 in stage 3.0 (TID 15) in 21 ms on 10.244.59.2 (executor 1) (13/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 55.0 in stage 3.0 (TID 17) (10.244.59.2, executor 1, partition 55, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 53.0 in stage 3.0 (TID 16) in 21 ms on 10.244.59.2 (executor 1) (14/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 59.0 in stage 3.0 (TID 18) (10.244.59.2, executor 1, partition 59, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 55.0 in stage 3.0 (TID 17) in 21 ms on 10.244.59.2 (executor 1) (15/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 65.0 in stage 3.0 (TID 19) (10.244.59.2, executor 1, partition 65, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 59.0 in stage 3.0 (TID 18) in 24 ms on 10.244.59.2 (executor 1) (16/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 74.0 in stage 3.0 (TID 20) (10.244.59.2, executor 1, partition 74, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 65.0 in stage 3.0 (TID 19) in 20 ms on 10.244.59.2 (executor 1) (17/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 75.0 in stage 3.0 (TID 21) (10.244.59.2, executor 1, partition 75, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 74.0 in stage 3.0 (TID 20) in 19 ms on 10.244.59.2 (executor 1) (18/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 79.0 in stage 3.0 (TID 22) (10.244.59.2, executor 1, partition 79, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 75.0 in stage 3.0 (TID 21) in 18 ms on 10.244.59.2 (executor 1) (19/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 82.0 in stage 3.0 (TID 23) (10.244.59.2, executor 1, partition 82, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 79.0 in stage 3.0 (TID 22) in 44 ms on 10.244.59.2 (executor 1) (20/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 83.0 in stage 3.0 (TID 24) (10.244.59.2, executor 1, partition 83, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 82.0 in stage 3.0 (TID 23) in 20 ms on 10.244.59.2 (executor 1) (21/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 86.0 in stage 3.0 (TID 25) (10.244.59.2, executor 1, partition 86, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 83.0 in stage 3.0 (TID 24) in 18 ms on 10.244.59.2 (executor 1) (22/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 88.0 in stage 3.0 (TID 26) (10.244.59.2, executor 1, partition 88, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 86.0 in stage 3.0 (TID 25) in 20 ms on 10.244.59.2 (executor 1) (23/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 89.0 in stage 3.0 (TID 27) (10.244.59.2, executor 1, partition 89, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 88.0 in stage 3.0 (TID 26) in 19 ms on 10.244.59.2 (executor 1) (24/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 90.0 in stage 3.0 (TID 28) (10.244.59.2, executor 1, partition 90, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 89.0 in stage 3.0 (TID 27) in 16 ms on 10.244.59.2 (executor 1) (25/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 92.0 in stage 3.0 (TID 29) (10.244.59.2, executor 1, partition 92, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 90.0 in stage 3.0 (TID 28) in 17 ms on 10.244.59.2 (executor 1) (26/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 93.0 in stage 3.0 (TID 30) (10.244.59.2, executor 1, partition 93, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 92.0 in stage 3.0 (TID 29) in 21 ms on 10.244.59.2 (executor 1) (27/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 98.0 in stage 3.0 (TID 31) (10.244.59.2, executor 1, partition 98, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 93.0 in stage 3.0 (TID 30) in 22 ms on 10.244.59.2 (executor 1) (28/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 104.0 in stage 3.0 (TID 32) (10.244.59.2, executor 1, partition 104, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 98.0 in stage 3.0 (TID 31) in 19 ms on 10.244.59.2 (executor 1) (29/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 110.0 in stage 3.0 (TID 33) (10.244.59.2, executor 1, partition 110, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 104.0 in stage 3.0 (TID 32) in 18 ms on 10.244.59.2 (executor 1) (30/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 113.0 in stage 3.0 (TID 34) (10.244.59.2, executor 1, partition 113, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 110.0 in stage 3.0 (TID 33) in 20 ms on 10.244.59.2 (executor 1) (31/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 117.0 in stage 3.0 (TID 35) (10.244.59.2, executor 1, partition 117, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 113.0 in stage 3.0 (TID 34) in 18 ms on 10.244.59.2 (executor 1) (32/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 118.0 in stage 3.0 (TID 36) (10.244.59.2, executor 1, partition 118, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 117.0 in stage 3.0 (TID 35) in 17 ms on 10.244.59.2 (executor 1) (33/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 119.0 in stage 3.0 (TID 37) (10.244.59.2, executor 1, partition 119, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 118.0 in stage 3.0 (TID 36) in 19 ms on 10.244.59.2 (executor 1) (34/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 120.0 in stage 3.0 (TID 38) (10.244.59.2, executor 1, partition 120, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 119.0 in stage 3.0 (TID 37) in 18 ms on 10.244.59.2 (executor 1) (35/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 122.0 in stage 3.0 (TID 39) (10.244.59.2, executor 1, partition 122, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 120.0 in stage 3.0 (TID 38) in 18 ms on 10.244.59.2 (executor 1) (36/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 131.0 in stage 3.0 (TID 40) (10.244.59.2, executor 1, partition 131, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 122.0 in stage 3.0 (TID 39) in 17 ms on 10.244.59.2 (executor 1) (37/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 140.0 in stage 3.0 (TID 41) (10.244.59.2, executor 1, partition 140, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:06 INFO TaskSetManager: Finished task 131.0 in stage 3.0 (TID 40) in 17 ms on 10.244.59.2 (executor 1) (38/200)
+22/06/22 08:28:06 INFO TaskSetManager: Starting task 146.0 in stage 3.0 (TID 42) (10.244.59.2, executor 1, partition 146, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 140.0 in stage 3.0 (TID 41) in 16 ms on 10.244.59.2 (executor 1) (39/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 149.0 in stage 3.0 (TID 43) (10.244.59.2, executor 1, partition 149, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 146.0 in stage 3.0 (TID 42) in 20 ms on 10.244.59.2 (executor 1) (40/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 156.0 in stage 3.0 (TID 44) (10.244.59.2, executor 1, partition 156, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 149.0 in stage 3.0 (TID 43) in 16 ms on 10.244.59.2 (executor 1) (41/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 159.0 in stage 3.0 (TID 45) (10.244.59.2, executor 1, partition 159, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 156.0 in stage 3.0 (TID 44) in 19 ms on 10.244.59.2 (executor 1) (42/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 165.0 in stage 3.0 (TID 46) (10.244.59.2, executor 1, partition 165, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 159.0 in stage 3.0 (TID 45) in 19 ms on 10.244.59.2 (executor 1) (43/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 167.0 in stage 3.0 (TID 47) (10.244.59.2, executor 1, partition 167, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 165.0 in stage 3.0 (TID 46) in 17 ms on 10.244.59.2 (executor 1) (44/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 170.0 in stage 3.0 (TID 48) (10.244.59.2, executor 1, partition 170, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 167.0 in stage 3.0 (TID 47) in 17 ms on 10.244.59.2 (executor 1) (45/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 171.0 in stage 3.0 (TID 49) (10.244.59.2, executor 1, partition 171, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 170.0 in stage 3.0 (TID 48) in 18 ms on 10.244.59.2 (executor 1) (46/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 173.0 in stage 3.0 (TID 50) (10.244.59.2, executor 1, partition 173, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 171.0 in stage 3.0 (TID 49) in 25 ms on 10.244.59.2 (executor 1) (47/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 175.0 in stage 3.0 (TID 51) (10.244.59.2, executor 1, partition 175, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 173.0 in stage 3.0 (TID 50) in 18 ms on 10.244.59.2 (executor 1) (48/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 177.0 in stage 3.0 (TID 52) (10.244.59.2, executor 1, partition 177, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 175.0 in stage 3.0 (TID 51) in 15 ms on 10.244.59.2 (executor 1) (49/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 178.0 in stage 3.0 (TID 53) (10.244.59.2, executor 1, partition 178, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 177.0 in stage 3.0 (TID 52) in 18 ms on 10.244.59.2 (executor 1) (50/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 179.0 in stage 3.0 (TID 54) (10.244.59.2, executor 1, partition 179, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 178.0 in stage 3.0 (TID 53) in 16 ms on 10.244.59.2 (executor 1) (51/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 184.0 in stage 3.0 (TID 55) (10.244.59.2, executor 1, partition 184, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 179.0 in stage 3.0 (TID 54) in 17 ms on 10.244.59.2 (executor 1) (52/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 185.0 in stage 3.0 (TID 56) (10.244.59.2, executor 1, partition 185, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 184.0 in stage 3.0 (TID 55) in 14 ms on 10.244.59.2 (executor 1) (53/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 188.0 in stage 3.0 (TID 57) (10.244.59.2, executor 1, partition 188, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 185.0 in stage 3.0 (TID 56) in 25 ms on 10.244.59.2 (executor 1) (54/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 190.0 in stage 3.0 (TID 58) (10.244.59.2, executor 1, partition 190, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 188.0 in stage 3.0 (TID 57) in 15 ms on 10.244.59.2 (executor 1) (55/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 191.0 in stage 3.0 (TID 59) (10.244.59.2, executor 1, partition 191, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 190.0 in stage 3.0 (TID 58) in 13 ms on 10.244.59.2 (executor 1) (56/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 192.0 in stage 3.0 (TID 60) (10.244.59.2, executor 1, partition 192, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 191.0 in stage 3.0 (TID 59) in 16 ms on 10.244.59.2 (executor 1) (57/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 198.0 in stage 3.0 (TID 61) (10.244.59.2, executor 1, partition 198, NODE_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 192.0 in stage 3.0 (TID 60) in 15 ms on 10.244.59.2 (executor 1) (58/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 2.0 in stage 3.0 (TID 62) (10.244.59.2, executor 1, partition 2, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 198.0 in stage 3.0 (TID 61) in 13 ms on 10.244.59.2 (executor 1) (59/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 5.0 in stage 3.0 (TID 63) (10.244.59.2, executor 1, partition 5, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 2.0 in stage 3.0 (TID 62) in 20 ms on 10.244.59.2 (executor 1) (60/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 6.0 in stage 3.0 (TID 64) (10.244.59.2, executor 1, partition 6, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 5.0 in stage 3.0 (TID 63) in 17 ms on 10.244.59.2 (executor 1) (61/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 7.0 in stage 3.0 (TID 65) (10.244.59.2, executor 1, partition 7, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 6.0 in stage 3.0 (TID 64) in 13 ms on 10.244.59.2 (executor 1) (62/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 8.0 in stage 3.0 (TID 66) (10.244.59.2, executor 1, partition 8, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 7.0 in stage 3.0 (TID 65) in 12 ms on 10.244.59.2 (executor 1) (63/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 9.0 in stage 3.0 (TID 67) (10.244.59.2, executor 1, partition 9, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 8.0 in stage 3.0 (TID 66) in 12 ms on 10.244.59.2 (executor 1) (64/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 10.0 in stage 3.0 (TID 68) (10.244.59.2, executor 1, partition 10, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 9.0 in stage 3.0 (TID 67) in 14 ms on 10.244.59.2 (executor 1) (65/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 11.0 in stage 3.0 (TID 69) (10.244.59.2, executor 1, partition 11, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 10.0 in stage 3.0 (TID 68) in 12 ms on 10.244.59.2 (executor 1) (66/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 14.0 in stage 3.0 (TID 70) (10.244.59.2, executor 1, partition 14, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 11.0 in stage 3.0 (TID 69) in 11 ms on 10.244.59.2 (executor 1) (67/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 15.0 in stage 3.0 (TID 71) (10.244.59.2, executor 1, partition 15, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 14.0 in stage 3.0 (TID 70) in 11 ms on 10.244.59.2 (executor 1) (68/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 17.0 in stage 3.0 (TID 72) (10.244.59.2, executor 1, partition 17, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 15.0 in stage 3.0 (TID 71) in 14 ms on 10.244.59.2 (executor 1) (69/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 18.0 in stage 3.0 (TID 73) (10.244.59.2, executor 1, partition 18, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 17.0 in stage 3.0 (TID 72) in 13 ms on 10.244.59.2 (executor 1) (70/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 19.0 in stage 3.0 (TID 74) (10.244.59.2, executor 1, partition 19, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 18.0 in stage 3.0 (TID 73) in 11 ms on 10.244.59.2 (executor 1) (71/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 21.0 in stage 3.0 (TID 75) (10.244.59.2, executor 1, partition 21, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 19.0 in stage 3.0 (TID 74) in 11 ms on 10.244.59.2 (executor 1) (72/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 23.0 in stage 3.0 (TID 76) (10.244.59.2, executor 1, partition 23, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 21.0 in stage 3.0 (TID 75) in 11 ms on 10.244.59.2 (executor 1) (73/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 24.0 in stage 3.0 (TID 77) (10.244.59.2, executor 1, partition 24, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 23.0 in stage 3.0 (TID 76) in 11 ms on 10.244.59.2 (executor 1) (74/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 26.0 in stage 3.0 (TID 78) (10.244.59.2, executor 1, partition 26, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 24.0 in stage 3.0 (TID 77) in 14 ms on 10.244.59.2 (executor 1) (75/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 28.0 in stage 3.0 (TID 79) (10.244.59.2, executor 1, partition 28, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 26.0 in stage 3.0 (TID 78) in 14 ms on 10.244.59.2 (executor 1) (76/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 29.0 in stage 3.0 (TID 80) (10.244.59.2, executor 1, partition 29, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 28.0 in stage 3.0 (TID 79) in 18 ms on 10.244.59.2 (executor 1) (77/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 31.0 in stage 3.0 (TID 81) (10.244.59.2, executor 1, partition 31, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 29.0 in stage 3.0 (TID 80) in 17 ms on 10.244.59.2 (executor 1) (78/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 32.0 in stage 3.0 (TID 82) (10.244.59.2, executor 1, partition 32, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 31.0 in stage 3.0 (TID 81) in 12 ms on 10.244.59.2 (executor 1) (79/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 33.0 in stage 3.0 (TID 83) (10.244.59.2, executor 1, partition 33, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 32.0 in stage 3.0 (TID 82) in 12 ms on 10.244.59.2 (executor 1) (80/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 34.0 in stage 3.0 (TID 84) (10.244.59.2, executor 1, partition 34, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 33.0 in stage 3.0 (TID 83) in 13 ms on 10.244.59.2 (executor 1) (81/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 35.0 in stage 3.0 (TID 85) (10.244.59.2, executor 1, partition 35, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 34.0 in stage 3.0 (TID 84) in 13 ms on 10.244.59.2 (executor 1) (82/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 36.0 in stage 3.0 (TID 86) (10.244.59.2, executor 1, partition 36, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 35.0 in stage 3.0 (TID 85) in 14 ms on 10.244.59.2 (executor 1) (83/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 37.0 in stage 3.0 (TID 87) (10.244.59.2, executor 1, partition 37, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 36.0 in stage 3.0 (TID 86) in 13 ms on 10.244.59.2 (executor 1) (84/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 38.0 in stage 3.0 (TID 88) (10.244.59.2, executor 1, partition 38, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 37.0 in stage 3.0 (TID 87) in 12 ms on 10.244.59.2 (executor 1) (85/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 39.0 in stage 3.0 (TID 89) (10.244.59.2, executor 1, partition 39, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 38.0 in stage 3.0 (TID 88) in 12 ms on 10.244.59.2 (executor 1) (86/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 40.0 in stage 3.0 (TID 90) (10.244.59.2, executor 1, partition 40, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 39.0 in stage 3.0 (TID 89) in 13 ms on 10.244.59.2 (executor 1) (87/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 41.0 in stage 3.0 (TID 91) (10.244.59.2, executor 1, partition 41, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 40.0 in stage 3.0 (TID 90) in 15 ms on 10.244.59.2 (executor 1) (88/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 42.0 in stage 3.0 (TID 92) (10.244.59.2, executor 1, partition 42, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 41.0 in stage 3.0 (TID 91) in 13 ms on 10.244.59.2 (executor 1) (89/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 43.0 in stage 3.0 (TID 93) (10.244.59.2, executor 1, partition 43, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 42.0 in stage 3.0 (TID 92) in 13 ms on 10.244.59.2 (executor 1) (90/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 44.0 in stage 3.0 (TID 94) (10.244.59.2, executor 1, partition 44, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 43.0 in stage 3.0 (TID 93) in 14 ms on 10.244.59.2 (executor 1) (91/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 45.0 in stage 3.0 (TID 95) (10.244.59.2, executor 1, partition 45, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 44.0 in stage 3.0 (TID 94) in 11 ms on 10.244.59.2 (executor 1) (92/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 46.0 in stage 3.0 (TID 96) (10.244.59.2, executor 1, partition 46, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 45.0 in stage 3.0 (TID 95) in 12 ms on 10.244.59.2 (executor 1) (93/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 47.0 in stage 3.0 (TID 97) (10.244.59.2, executor 1, partition 47, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 46.0 in stage 3.0 (TID 96) in 12 ms on 10.244.59.2 (executor 1) (94/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 48.0 in stage 3.0 (TID 98) (10.244.59.2, executor 1, partition 48, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 47.0 in stage 3.0 (TID 97) in 13 ms on 10.244.59.2 (executor 1) (95/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 49.0 in stage 3.0 (TID 99) (10.244.59.2, executor 1, partition 49, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 48.0 in stage 3.0 (TID 98) in 13 ms on 10.244.59.2 (executor 1) (96/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 50.0 in stage 3.0 (TID 100) (10.244.59.2, executor 1, partition 50, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 49.0 in stage 3.0 (TID 99) in 25 ms on 10.244.59.2 (executor 1) (97/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 51.0 in stage 3.0 (TID 101) (10.244.59.2, executor 1, partition 51, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 50.0 in stage 3.0 (TID 100) in 12 ms on 10.244.59.2 (executor 1) (98/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 54.0 in stage 3.0 (TID 102) (10.244.59.2, executor 1, partition 54, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 51.0 in stage 3.0 (TID 101) in 11 ms on 10.244.59.2 (executor 1) (99/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 56.0 in stage 3.0 (TID 103) (10.244.59.2, executor 1, partition 56, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 54.0 in stage 3.0 (TID 102) in 10 ms on 10.244.59.2 (executor 1) (100/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 57.0 in stage 3.0 (TID 104) (10.244.59.2, executor 1, partition 57, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 56.0 in stage 3.0 (TID 103) in 11 ms on 10.244.59.2 (executor 1) (101/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 58.0 in stage 3.0 (TID 105) (10.244.59.2, executor 1, partition 58, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 57.0 in stage 3.0 (TID 104) in 11 ms on 10.244.59.2 (executor 1) (102/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 60.0 in stage 3.0 (TID 106) (10.244.59.2, executor 1, partition 60, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 58.0 in stage 3.0 (TID 105) in 11 ms on 10.244.59.2 (executor 1) (103/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 61.0 in stage 3.0 (TID 107) (10.244.59.2, executor 1, partition 61, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 60.0 in stage 3.0 (TID 106) in 12 ms on 10.244.59.2 (executor 1) (104/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 62.0 in stage 3.0 (TID 108) (10.244.59.2, executor 1, partition 62, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 61.0 in stage 3.0 (TID 107) in 12 ms on 10.244.59.2 (executor 1) (105/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 63.0 in stage 3.0 (TID 109) (10.244.59.2, executor 1, partition 63, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 62.0 in stage 3.0 (TID 108) in 11 ms on 10.244.59.2 (executor 1) (106/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 64.0 in stage 3.0 (TID 110) (10.244.59.2, executor 1, partition 64, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 63.0 in stage 3.0 (TID 109) in 11 ms on 10.244.59.2 (executor 1) (107/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 66.0 in stage 3.0 (TID 111) (10.244.59.2, executor 1, partition 66, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 64.0 in stage 3.0 (TID 110) in 12 ms on 10.244.59.2 (executor 1) (108/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 67.0 in stage 3.0 (TID 112) (10.244.59.2, executor 1, partition 67, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 66.0 in stage 3.0 (TID 111) in 11 ms on 10.244.59.2 (executor 1) (109/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 68.0 in stage 3.0 (TID 113) (10.244.59.2, executor 1, partition 68, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 67.0 in stage 3.0 (TID 112) in 10 ms on 10.244.59.2 (executor 1) (110/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 69.0 in stage 3.0 (TID 114) (10.244.59.2, executor 1, partition 69, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 68.0 in stage 3.0 (TID 113) in 12 ms on 10.244.59.2 (executor 1) (111/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 70.0 in stage 3.0 (TID 115) (10.244.59.2, executor 1, partition 70, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 69.0 in stage 3.0 (TID 114) in 13 ms on 10.244.59.2 (executor 1) (112/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 71.0 in stage 3.0 (TID 116) (10.244.59.2, executor 1, partition 71, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 70.0 in stage 3.0 (TID 115) in 11 ms on 10.244.59.2 (executor 1) (113/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 72.0 in stage 3.0 (TID 117) (10.244.59.2, executor 1, partition 72, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 71.0 in stage 3.0 (TID 116) in 11 ms on 10.244.59.2 (executor 1) (114/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 73.0 in stage 3.0 (TID 118) (10.244.59.2, executor 1, partition 73, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 72.0 in stage 3.0 (TID 117) in 16 ms on 10.244.59.2 (executor 1) (115/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 76.0 in stage 3.0 (TID 119) (10.244.59.2, executor 1, partition 76, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 73.0 in stage 3.0 (TID 118) in 13 ms on 10.244.59.2 (executor 1) (116/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 77.0 in stage 3.0 (TID 120) (10.244.59.2, executor 1, partition 77, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 76.0 in stage 3.0 (TID 119) in 10 ms on 10.244.59.2 (executor 1) (117/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 78.0 in stage 3.0 (TID 121) (10.244.59.2, executor 1, partition 78, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 77.0 in stage 3.0 (TID 120) in 11 ms on 10.244.59.2 (executor 1) (118/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 80.0 in stage 3.0 (TID 122) (10.244.59.2, executor 1, partition 80, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 78.0 in stage 3.0 (TID 121) in 12 ms on 10.244.59.2 (executor 1) (119/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 81.0 in stage 3.0 (TID 123) (10.244.59.2, executor 1, partition 81, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 80.0 in stage 3.0 (TID 122) in 11 ms on 10.244.59.2 (executor 1) (120/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 84.0 in stage 3.0 (TID 124) (10.244.59.2, executor 1, partition 84, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 81.0 in stage 3.0 (TID 123) in 10 ms on 10.244.59.2 (executor 1) (121/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 85.0 in stage 3.0 (TID 125) (10.244.59.2, executor 1, partition 85, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 84.0 in stage 3.0 (TID 124) in 9 ms on 10.244.59.2 (executor 1) (122/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 87.0 in stage 3.0 (TID 126) (10.244.59.2, executor 1, partition 87, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 85.0 in stage 3.0 (TID 125) in 12 ms on 10.244.59.2 (executor 1) (123/200)
+22/06/22 08:28:07 INFO TaskSetManager: Starting task 91.0 in stage 3.0 (TID 127) (10.244.59.2, executor 1, partition 91, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:07 INFO TaskSetManager: Finished task 87.0 in stage 3.0 (TID 126) in 12 ms on 10.244.59.2 (executor 1) (124/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 94.0 in stage 3.0 (TID 128) (10.244.59.2, executor 1, partition 94, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 91.0 in stage 3.0 (TID 127) in 12 ms on 10.244.59.2 (executor 1) (125/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 95.0 in stage 3.0 (TID 129) (10.244.59.2, executor 1, partition 95, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 94.0 in stage 3.0 (TID 128) in 14 ms on 10.244.59.2 (executor 1) (126/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 96.0 in stage 3.0 (TID 130) (10.244.59.2, executor 1, partition 96, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 95.0 in stage 3.0 (TID 129) in 13 ms on 10.244.59.2 (executor 1) (127/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 97.0 in stage 3.0 (TID 131) (10.244.59.2, executor 1, partition 97, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 96.0 in stage 3.0 (TID 130) in 17 ms on 10.244.59.2 (executor 1) (128/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 99.0 in stage 3.0 (TID 132) (10.244.59.2, executor 1, partition 99, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 97.0 in stage 3.0 (TID 131) in 11 ms on 10.244.59.2 (executor 1) (129/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 100.0 in stage 3.0 (TID 133) (10.244.59.2, executor 1, partition 100, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 99.0 in stage 3.0 (TID 132) in 10 ms on 10.244.59.2 (executor 1) (130/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 101.0 in stage 3.0 (TID 134) (10.244.59.2, executor 1, partition 101, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 100.0 in stage 3.0 (TID 133) in 9 ms on 10.244.59.2 (executor 1) (131/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 102.0 in stage 3.0 (TID 135) (10.244.59.2, executor 1, partition 102, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 101.0 in stage 3.0 (TID 134) in 10 ms on 10.244.59.2 (executor 1) (132/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 103.0 in stage 3.0 (TID 136) (10.244.59.2, executor 1, partition 103, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 102.0 in stage 3.0 (TID 135) in 9 ms on 10.244.59.2 (executor 1) (133/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 105.0 in stage 3.0 (TID 137) (10.244.59.2, executor 1, partition 105, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 103.0 in stage 3.0 (TID 136) in 10 ms on 10.244.59.2 (executor 1) (134/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 106.0 in stage 3.0 (TID 138) (10.244.59.2, executor 1, partition 106, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 105.0 in stage 3.0 (TID 137) in 24 ms on 10.244.59.2 (executor 1) (135/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 107.0 in stage 3.0 (TID 139) (10.244.59.2, executor 1, partition 107, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 106.0 in stage 3.0 (TID 138) in 10 ms on 10.244.59.2 (executor 1) (136/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 108.0 in stage 3.0 (TID 140) (10.244.59.2, executor 1, partition 108, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 107.0 in stage 3.0 (TID 139) in 11 ms on 10.244.59.2 (executor 1) (137/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 109.0 in stage 3.0 (TID 141) (10.244.59.2, executor 1, partition 109, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 108.0 in stage 3.0 (TID 140) in 10 ms on 10.244.59.2 (executor 1) (138/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 111.0 in stage 3.0 (TID 142) (10.244.59.2, executor 1, partition 111, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 109.0 in stage 3.0 (TID 141) in 11 ms on 10.244.59.2 (executor 1) (139/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 112.0 in stage 3.0 (TID 143) (10.244.59.2, executor 1, partition 112, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 111.0 in stage 3.0 (TID 142) in 10 ms on 10.244.59.2 (executor 1) (140/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 114.0 in stage 3.0 (TID 144) (10.244.59.2, executor 1, partition 114, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 112.0 in stage 3.0 (TID 143) in 9 ms on 10.244.59.2 (executor 1) (141/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 115.0 in stage 3.0 (TID 145) (10.244.59.2, executor 1, partition 115, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 114.0 in stage 3.0 (TID 144) in 10 ms on 10.244.59.2 (executor 1) (142/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 116.0 in stage 3.0 (TID 146) (10.244.59.2, executor 1, partition 116, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 115.0 in stage 3.0 (TID 145) in 9 ms on 10.244.59.2 (executor 1) (143/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 121.0 in stage 3.0 (TID 147) (10.244.59.2, executor 1, partition 121, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 116.0 in stage 3.0 (TID 146) in 9 ms on 10.244.59.2 (executor 1) (144/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 123.0 in stage 3.0 (TID 148) (10.244.59.2, executor 1, partition 123, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 121.0 in stage 3.0 (TID 147) in 9 ms on 10.244.59.2 (executor 1) (145/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 124.0 in stage 3.0 (TID 149) (10.244.59.2, executor 1, partition 124, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 123.0 in stage 3.0 (TID 148) in 10 ms on 10.244.59.2 (executor 1) (146/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 125.0 in stage 3.0 (TID 150) (10.244.59.2, executor 1, partition 125, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 124.0 in stage 3.0 (TID 149) in 11 ms on 10.244.59.2 (executor 1) (147/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 126.0 in stage 3.0 (TID 151) (10.244.59.2, executor 1, partition 126, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 125.0 in stage 3.0 (TID 150) in 10 ms on 10.244.59.2 (executor 1) (148/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 127.0 in stage 3.0 (TID 152) (10.244.59.2, executor 1, partition 127, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 126.0 in stage 3.0 (TID 151) in 12 ms on 10.244.59.2 (executor 1) (149/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 128.0 in stage 3.0 (TID 153) (10.244.59.2, executor 1, partition 128, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 127.0 in stage 3.0 (TID 152) in 9 ms on 10.244.59.2 (executor 1) (150/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 129.0 in stage 3.0 (TID 154) (10.244.59.2, executor 1, partition 129, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 128.0 in stage 3.0 (TID 153) in 9 ms on 10.244.59.2 (executor 1) (151/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 130.0 in stage 3.0 (TID 155) (10.244.59.2, executor 1, partition 130, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 129.0 in stage 3.0 (TID 154) in 11 ms on 10.244.59.2 (executor 1) (152/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 132.0 in stage 3.0 (TID 156) (10.244.59.2, executor 1, partition 132, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 130.0 in stage 3.0 (TID 155) in 9 ms on 10.244.59.2 (executor 1) (153/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 133.0 in stage 3.0 (TID 157) (10.244.59.2, executor 1, partition 133, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 132.0 in stage 3.0 (TID 156) in 9 ms on 10.244.59.2 (executor 1) (154/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 134.0 in stage 3.0 (TID 158) (10.244.59.2, executor 1, partition 134, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 133.0 in stage 3.0 (TID 157) in 11 ms on 10.244.59.2 (executor 1) (155/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 135.0 in stage 3.0 (TID 159) (10.244.59.2, executor 1, partition 135, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 134.0 in stage 3.0 (TID 158) in 9 ms on 10.244.59.2 (executor 1) (156/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 136.0 in stage 3.0 (TID 160) (10.244.59.2, executor 1, partition 136, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 135.0 in stage 3.0 (TID 159) in 11 ms on 10.244.59.2 (executor 1) (157/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 137.0 in stage 3.0 (TID 161) (10.244.59.2, executor 1, partition 137, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 136.0 in stage 3.0 (TID 160) in 10 ms on 10.244.59.2 (executor 1) (158/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 138.0 in stage 3.0 (TID 162) (10.244.59.2, executor 1, partition 138, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 137.0 in stage 3.0 (TID 161) in 13 ms on 10.244.59.2 (executor 1) (159/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 139.0 in stage 3.0 (TID 163) (10.244.59.2, executor 1, partition 139, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 138.0 in stage 3.0 (TID 162) in 11 ms on 10.244.59.2 (executor 1) (160/200)
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 139.0 in stage 3.0 (TID 163) in 9 ms on 10.244.59.2 (executor 1) (161/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 141.0 in stage 3.0 (TID 164) (10.244.59.2, executor 1, partition 141, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 142.0 in stage 3.0 (TID 165) (10.244.59.2, executor 1, partition 142, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 141.0 in stage 3.0 (TID 164) in 9 ms on 10.244.59.2 (executor 1) (162/200)
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 142.0 in stage 3.0 (TID 165) in 10 ms on 10.244.59.2 (executor 1) (163/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 143.0 in stage 3.0 (TID 166) (10.244.59.2, executor 1, partition 143, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 144.0 in stage 3.0 (TID 167) (10.244.59.2, executor 1, partition 144, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 143.0 in stage 3.0 (TID 166) in 10 ms on 10.244.59.2 (executor 1) (164/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 145.0 in stage 3.0 (TID 168) (10.244.59.2, executor 1, partition 145, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 144.0 in stage 3.0 (TID 167) in 9 ms on 10.244.59.2 (executor 1) (165/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 147.0 in stage 3.0 (TID 169) (10.244.59.2, executor 1, partition 147, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 145.0 in stage 3.0 (TID 168) in 9 ms on 10.244.59.2 (executor 1) (166/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 148.0 in stage 3.0 (TID 170) (10.244.59.2, executor 1, partition 148, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 147.0 in stage 3.0 (TID 169) in 11 ms on 10.244.59.2 (executor 1) (167/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 150.0 in stage 3.0 (TID 171) (10.244.59.2, executor 1, partition 150, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 148.0 in stage 3.0 (TID 170) in 13 ms on 10.244.59.2 (executor 1) (168/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 151.0 in stage 3.0 (TID 172) (10.244.59.2, executor 1, partition 151, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 150.0 in stage 3.0 (TID 171) in 12 ms on 10.244.59.2 (executor 1) (169/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 152.0 in stage 3.0 (TID 173) (10.244.59.2, executor 1, partition 152, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 151.0 in stage 3.0 (TID 172) in 11 ms on 10.244.59.2 (executor 1) (170/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 153.0 in stage 3.0 (TID 174) (10.244.59.2, executor 1, partition 153, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 152.0 in stage 3.0 (TID 173) in 19 ms on 10.244.59.2 (executor 1) (171/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 154.0 in stage 3.0 (TID 175) (10.244.59.2, executor 1, partition 154, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 153.0 in stage 3.0 (TID 174) in 14 ms on 10.244.59.2 (executor 1) (172/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 155.0 in stage 3.0 (TID 176) (10.244.59.2, executor 1, partition 155, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 154.0 in stage 3.0 (TID 175) in 11 ms on 10.244.59.2 (executor 1) (173/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 157.0 in stage 3.0 (TID 177) (10.244.59.2, executor 1, partition 157, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 155.0 in stage 3.0 (TID 176) in 11 ms on 10.244.59.2 (executor 1) (174/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 158.0 in stage 3.0 (TID 178) (10.244.59.2, executor 1, partition 158, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 157.0 in stage 3.0 (TID 177) in 14 ms on 10.244.59.2 (executor 1) (175/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 160.0 in stage 3.0 (TID 179) (10.244.59.2, executor 1, partition 160, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 158.0 in stage 3.0 (TID 178) in 11 ms on 10.244.59.2 (executor 1) (176/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 161.0 in stage 3.0 (TID 180) (10.244.59.2, executor 1, partition 161, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 160.0 in stage 3.0 (TID 179) in 9 ms on 10.244.59.2 (executor 1) (177/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 162.0 in stage 3.0 (TID 181) (10.244.59.2, executor 1, partition 162, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 161.0 in stage 3.0 (TID 180) in 10 ms on 10.244.59.2 (executor 1) (178/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 163.0 in stage 3.0 (TID 182) (10.244.59.2, executor 1, partition 163, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 162.0 in stage 3.0 (TID 181) in 11 ms on 10.244.59.2 (executor 1) (179/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 164.0 in stage 3.0 (TID 183) (10.244.59.2, executor 1, partition 164, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 163.0 in stage 3.0 (TID 182) in 10 ms on 10.244.59.2 (executor 1) (180/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 166.0 in stage 3.0 (TID 184) (10.244.59.2, executor 1, partition 166, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 164.0 in stage 3.0 (TID 183) in 10 ms on 10.244.59.2 (executor 1) (181/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 168.0 in stage 3.0 (TID 185) (10.244.59.2, executor 1, partition 168, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 166.0 in stage 3.0 (TID 184) in 10 ms on 10.244.59.2 (executor 1) (182/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 169.0 in stage 3.0 (TID 186) (10.244.59.2, executor 1, partition 169, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 168.0 in stage 3.0 (TID 185) in 10 ms on 10.244.59.2 (executor 1) (183/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 172.0 in stage 3.0 (TID 187) (10.244.59.2, executor 1, partition 172, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 169.0 in stage 3.0 (TID 186) in 10 ms on 10.244.59.2 (executor 1) (184/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 174.0 in stage 3.0 (TID 188) (10.244.59.2, executor 1, partition 174, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 172.0 in stage 3.0 (TID 187) in 10 ms on 10.244.59.2 (executor 1) (185/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 176.0 in stage 3.0 (TID 189) (10.244.59.2, executor 1, partition 176, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 174.0 in stage 3.0 (TID 188) in 9 ms on 10.244.59.2 (executor 1) (186/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 180.0 in stage 3.0 (TID 190) (10.244.59.2, executor 1, partition 180, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 176.0 in stage 3.0 (TID 189) in 10 ms on 10.244.59.2 (executor 1) (187/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 181.0 in stage 3.0 (TID 191) (10.244.59.2, executor 1, partition 181, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 180.0 in stage 3.0 (TID 190) in 11 ms on 10.244.59.2 (executor 1) (188/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 182.0 in stage 3.0 (TID 192) (10.244.59.2, executor 1, partition 182, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 181.0 in stage 3.0 (TID 191) in 9 ms on 10.244.59.2 (executor 1) (189/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 183.0 in stage 3.0 (TID 193) (10.244.59.2, executor 1, partition 183, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 182.0 in stage 3.0 (TID 192) in 11 ms on 10.244.59.2 (executor 1) (190/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 186.0 in stage 3.0 (TID 194) (10.244.59.2, executor 1, partition 186, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 183.0 in stage 3.0 (TID 193) in 17 ms on 10.244.59.2 (executor 1) (191/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 187.0 in stage 3.0 (TID 195) (10.244.59.2, executor 1, partition 187, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 186.0 in stage 3.0 (TID 194) in 18 ms on 10.244.59.2 (executor 1) (192/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 189.0 in stage 3.0 (TID 196) (10.244.59.2, executor 1, partition 189, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 187.0 in stage 3.0 (TID 195) in 9 ms on 10.244.59.2 (executor 1) (193/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 193.0 in stage 3.0 (TID 197) (10.244.59.2, executor 1, partition 193, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 189.0 in stage 3.0 (TID 196) in 9 ms on 10.244.59.2 (executor 1) (194/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 194.0 in stage 3.0 (TID 198) (10.244.59.2, executor 1, partition 194, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 193.0 in stage 3.0 (TID 197) in 9 ms on 10.244.59.2 (executor 1) (195/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 195.0 in stage 3.0 (TID 199) (10.244.59.2, executor 1, partition 195, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 194.0 in stage 3.0 (TID 198) in 9 ms on 10.244.59.2 (executor 1) (196/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 196.0 in stage 3.0 (TID 200) (10.244.59.2, executor 1, partition 196, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 195.0 in stage 3.0 (TID 199) in 8 ms on 10.244.59.2 (executor 1) (197/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 197.0 in stage 3.0 (TID 201) (10.244.59.2, executor 1, partition 197, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 196.0 in stage 3.0 (TID 200) in 10 ms on 10.244.59.2 (executor 1) (198/200)
+22/06/22 08:28:08 INFO TaskSetManager: Starting task 199.0 in stage 3.0 (TID 202) (10.244.59.2, executor 1, partition 199, PROCESS_LOCAL, 4472 bytes) taskResourceAssignments Map()
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 197.0 in stage 3.0 (TID 201) in 10 ms on 10.244.59.2 (executor 1) (199/200)
+22/06/22 08:28:08 INFO TaskSetManager: Finished task 199.0 in stage 3.0 (TID 202) in 9 ms on 10.244.59.2 (executor 1) (200/200)
+22/06/22 08:28:08 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool
+22/06/22 08:28:08 INFO DAGScheduler: ResultStage 3 (showString at <unknown>:0) finished in 2.738 s
+22/06/22 08:28:08 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+22/06/22 08:28:08 INFO TaskSchedulerImpl: Killing all running tasks in stage 3: Stage finished
+22/06/22 08:28:08 INFO DAGScheduler: Job 2 finished: showString at <unknown>:0, took 3.238499 s
+22/06/22 08:28:08 INFO CodeGenerator: Code generated in 9.842496 ms
+22/06/22 08:28:08 INFO CodeGenerator: Code generated in 9.02968 ms
++----+-----+
+|year|count|
++----+-----+
+|1926|    2|
+|1927|    3|
+|1929|    1|
+|1930|    2|
+|1934|    1|
+|1935|    2|
+|1936|    1|
+|1940|    2|
+|1947|    2|
+|1950|    1|
+|1953|    4|
+|1954|    1|
+|1955|    1|
+|1956|    7|
+|1957|    1|
+|1958|    6|
+|1959|    9|
+|1960|    9|
+|1961|    7|
+|1962|    4|
+|1963|   15|
+|1964|   13|
+|1965|    8|
+|1966|   12|
+|1967|   29|
+|1968|   23|
+|1969|   17|
+|1970|   21|
+|1971|   25|
+|1972|   24|
+|1973|   24|
+|1974|   22|
+|1975|   24|
+|1976|   15|
+|1977|   35|
+|1978|   20|
+|1979|   36|
+|1980|   32|
+|1981|   36|
+|1982|   50|
+|1983|   47|
+|1984|   32|
+|1985|   34|
+|1986|   37|
+|1987|   44|
+|1988|   61|
+|1989|   66|
+|1990|   72|
+|1991|   91|
+|1992|   98|
+|1993|  126|
+|1994|  115|
+|1995|  135|
+|1996|  109|
+|1997|  130|
+|1998|  151|
+|1999|  178|
+|2000|  192|
+|2001|  217|
+|2002|  198|
+|2003|  254|
+|2004|  270|
+|2005|  304|
+|2006|  320|
+|2007|  285|
+|2008|  253|
+|2009|  250|
+|2010|   64|
++----+-----+
+
+22/06/22 08:28:08 INFO SparkUI: Stopped Spark web UI at http://music-stats-5809e9818a85d925-driver-svc.default.svc:4040
+22/06/22 08:28:08 INFO KubernetesClusterSchedulerBackend: Shutting down all executors
+22/06/22 08:28:08 INFO KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Asking each executor to shut down
+22/06/22 08:28:08 WARN ExecutorPodsWatchSnapshotSource: Kubernetes client has been closed (this is expected if the application is shutting down.)
+22/06/22 08:28:08 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+22/06/22 08:28:08 INFO MemoryStore: MemoryStore cleared
+22/06/22 08:28:08 INFO BlockManager: BlockManager stopped
+22/06/22 08:28:08 INFO BlockManagerMaster: BlockManagerMaster stopped
+22/06/22 08:28:08 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+22/06/22 08:28:08 INFO SparkContext: Successfully stopped SparkContext
+22/06/22 08:28:09 INFO ShutdownHookManager: Shutdown hook called
+22/06/22 08:28:09 INFO ShutdownHookManager: Deleting directory /var/data/spark-56f09dce-445d-4e7f-9460-9ba1e40fabb5/spark-d0feaa3c-80e4-4eb3-8bb0-00ef0f959b9f/pyspark-3220315d-c860-4463-88a8-f07da65ad21c
+22/06/22 08:28:09 INFO ShutdownHookManager: Deleting directory /var/data/spark-56f09dce-445d-4e7f-9460-9ba1e40fabb5/spark-d0feaa3c-80e4-4eb3-8bb0-00ef0f959b9f
+22/06/22 08:28:09 INFO ShutdownHookManager: Deleting directory /tmp/spark-4ce4ac84-90bb-403b-ad38-ca226f061b4f
+22/06/22 08:28:09 INFO MetricsSystemImpl: Stopping azure-file-system metrics system...
+22/06/22 08:28:09 INFO MetricsSystemImpl: azure-file-system metrics system stopped.
+22/06/22 08:28:09 INFO MetricsSystemImpl: azure-file-system metrics system shutdown complete.
